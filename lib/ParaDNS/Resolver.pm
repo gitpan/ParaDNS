@@ -40,7 +40,7 @@ sub new {
         }
     } 
     else {
-        foreach my $ns (@{ $res->{nameservers} }) {
+        foreach my $ns ($res->nameservers) {
             trace(2, "Using nameserver $ns:$res->{port}\n");
             my $dst_sockaddr = sockaddr_in($res->{'port'}, inet_aton($ns));
             push @{$self->{dst}}, $dst_sockaddr;
